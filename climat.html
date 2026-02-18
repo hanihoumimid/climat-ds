@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Expert en climatisation, chauffage et plomberie en Île-de-France. Installation aux normes, dépannage rapide et garantie décennale.">
+    <title>Climat DS - Expert CVC & Plomberie Pontault-Combault</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            light: '#38bdf8', // Sky 400
+                            DEFAULT: '#0284c7', // Sky 600
+                            dark: '#0369a1', // Sky 700
+                            accent: '#10b981', // Emerald 500
+                            darker: '#0c4a6e', // Sky 900
+                        }
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(2, 132, 199, 0.3)',
+                        'glow-accent': '0 0 20px rgba(16, 185, 129, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Effet Verre Dépoli Premium */
+        .glass-nav { 
+            background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Pattern subtil pour le fond */
+        .bg-grid-slate {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(226, 232, 240, 0.5) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(226, 232, 240, 0.5) 1px, transparent 1px);
+        }
+
+        /* Classes d'animation au scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); /* Courbe de Bézier très fluide */
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+
+        /* Accordéon FAQ */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] summary ~ * { animation: sweep .3s ease-in-out; }
+        @keyframes sweep { 0% {opacity: 0; transform: translateY(-10px)} 100% {opacity: 1; transform: translateY(0)} }
+    </style>
+</head>
+<body class="text-slate-800 antialiased bg-slate-50 selection:bg-brand selection:text-white overflow-x-hidden">
+
+    <div class="bg-slate-900 text-slate-400 text-xs py-2.5 hidden md:block border-b border-slate-800">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex gap-6 tracking-wide">
+                <span class="flex items-center text-slate-300"><i class="fas fa-shield-alt text-brand-accent mr-2"></i> Garantie Décennale & RC Pro</span>
+                <span class="flex items-center text-slate-300"><i class="fas fa-check-circle text-brand-accent mr-2"></i> Habilité Fluides Frigorigènes</span>
+            </div>
+            <div class="flex gap-6 font-medium">
+                <a href="tel:0160000000" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-phone-alt text-brand"></i> 01 60 00 00 00</a>
+                <a href="mailto:contact@climat-ds.fr" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-envelope text-brand"></i> contact@climat-ds.fr</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="glass-nav sticky top-0 z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 group relative z-50">
+                <img src="climat.png" alt="Logo Climat DS" class="h-10 w-auto object-contain" onerror="this.style.display='none'; document.getElementById('logo-fallback').classList.remove('hidden')">
+                
+                <div id="logo-fallback" class="hidden bg-gradient-to-br from-brand to-brand-dark text-white w-10 h-10 rounded-xl flex items-center justify-center text-xl shadow-lg shadow-brand/30">
+                    <i class="fas fa-wind"></i>
+                </div>
+                
+                <div class="leading-none">
+                    <span class="block text-xl font-extrabold text-slate-800 tracking-tight">Climat<span class="text-brand">DS</span></span>
+                    <span class="block text-[9px] text-slate-500 font-bold uppercase tracking-[0.2em] mt-1">Chauffage & Clim</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-10 font-medium text-sm text-slate-600">
+                <a href="#" class="hover:text-brand transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-brand after:transition-all after:duration-300 hover:after:w-full">Accueil</a>
+                <a href="#services" class="hover:text-brand transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-brand after:transition-all after:duration-300 hover:after:w-full">Expertises</a>
+                <a href="#realisations" class="hover:text-brand transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-brand after:transition-all after:duration-300 hover:after:w-full">Projets</a>
+                <a href="#faq" class="hover:text-brand transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-brand after:transition-all after:duration-300 hover:after:w-full">FAQ</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white transition-all duration-300 bg-brand rounded-full hover:bg-brand-dark shadow-glow hover:shadow-lg hover:-translate-y-0.5">
+                    <span>Devis Gratuit</span>
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                
+                <button id="mobile-menu-btn" class="lg:hidden relative z-50 p-2 text-slate-800 hover:text-brand focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-white/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center space-y-8 transition-all duration-300">
+            <a href="#" class="text-2xl font-bold text-slate-800 hover:text-brand">Accueil</a>
+            <a href="#services" class="text-2xl font-bold text-slate-800 hover:text-brand">Services</a>
+            <a href="#realisations" class="text-2xl font-bold text-slate-800 hover:text-brand">Réalisations</a>
+            <a href="#contact" class="px-8 py-4 bg-brand text-white rounded-full font-bold text-xl shadow-xl">Demander un Devis</a>
+        </div>
+    </header>
+
+    <section class="relative pt-24 pb-40 overflow-hidden bg-slate-900">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b5?q=80&w=2069&auto=format&fit=crop" class="w-full h-full object-cover opacity-30 scale-105 animate-[pulse_8s_ease-in-out_infinite]">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/95 to-slate-900/60"></div>
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl">
+                <div class="reveal active inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2 mb-8 backdrop-blur-md shadow-lg">
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-accent"></span>
+                    </span>
+                    <span class="text-white/90 text-xs font-bold uppercase tracking-widest">Intervention 77 / 91 / 94</span>
+                </div>
+
+                <h1 class="reveal delay-100 active text-5xl md:text-7xl font-extrabold text-white leading-[1.1] mb-8 tracking-tight">
+                    Le confort thermique <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-white">d'une installation parfaite.</span>
+                </h1>
+                
+                <p class="reveal delay-200 active text-lg md:text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed font-light">
+                    Spécialiste climatisation, pompes à chaleur et plomberie.
+                    <strong class="text-white font-semibold">Garantie Décennale</strong> et respect strict des normes DTU pour une tranquillité d'esprit totale.
+                </p>
+
+                <div class="reveal delay-300 active flex flex-col sm:flex-row gap-5">
+                    <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-300 bg-brand rounded-full hover:bg-brand-dark shadow-glow hover:-translate-y-1">
+                        Estimer mon projet
+                    </a>
+                    <a href="tel:0160000000" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white border border-white/20 bg-white/5 backdrop-blur-sm rounded-full hover:bg-white/10 hover:border-white/40 transition-all">
+                        <i class="fas fa-phone-alt mr-3"></i> Urgence Dépannage
+                    </a>
+                </div>
+
+                <div class="reveal delay-300 active mt-16 pt-8 border-t border-white/10 flex flex-wrap gap-x-12 gap-y-4 text-slate-400 text-sm font-medium">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-brand/20 flex items-center justify-center text-brand-light"><i class="fas fa-file-contract"></i></div>
+                        <span>Conforme normes DTU</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400"><i class="fas fa-shield-alt"></i></div>
+                        <span>Assurance Décennale</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400"><i class="fas fa-bolt"></i></div>
+                        <span>Devis sous 24h</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-white py-12 border-b border-slate-100 relative overflow-hidden">
+        <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
+        
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-[0.3em] mb-8">Partenaire des leaders mondiaux</p>
+            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
+                <span class="reveal text-3xl font-bold font-sans text-slate-900 tracking-tighter">DAIKIN</span>
+                <span class="reveal delay-100 text-3xl font-black italic text-slate-900">MITSUBISHI</span>
+                <span class="reveal delay-200 text-3xl font-bold text-slate-900">ATLANTIC</span>
+                <span class="reveal delay-300 text-3xl font-bold text-slate-900 tracking-tight">TOSHIBA</span>
+                <span class="reveal delay-100 text-3xl font-bold text-slate-900">SAUNIER DUVAL</span>
+            </div>
+        </div>
+    </div>
+
+    <section id="services" class="py-32 bg-slate-50 bg-grid-slate">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+                <h2 class="text-brand font-bold uppercase tracking-widest text-xs mb-3">Nos Domaines d'Expertise</h2>
+                <h3 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Des solutions durables.</h3>
+                <p class="text-lg text-slate-600 leading-relaxed">Nous ne faisons pas que poser du matériel. Nous concevons le système thermique adapté à votre mode de vie.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="reveal bg-white rounded-3xl p-10 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-brand/10 transition-all duration-500 border border-slate-100 group hover:-translate-y-2 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand/5 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-700"></div>
+                    
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-brand text-3xl mb-8 group-hover:bg-brand group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-glow group-hover:rotate-3">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-900 mb-4">Climatisation & PAC</h4>
+                    <p class="text-slate-500 leading-relaxed mb-8">Installation de pompes à chaleur air/air et air/eau. Réduisez votre facture énergétique avec du matériel haute performance.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-sm text-slate-700 font-medium"><i class="fas fa-check text-brand mr-3"></i> Splits & Gainables invisibles</li>
+                        <li class="flex items-center text-sm text-slate-700 font-medium"><i class="fas fa-check text-brand mr-3"></i> Habilitation fluides</li>
+                        <li class="flex items-center text-sm text-slate-700 font-medium"><i class="fas fa-check text-brand mr-3"></i> Étude thermique personnalisée</li>
+                    </ul>
+                </div>
+
+                <div class="reveal delay-100 bg-white rounded-3xl p-10 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-500 border border-slate-100 group hover:-translate-y-2 relative overflow-hidden ring-1 ring-emerald-100">
+                    <div class="absolute top-5 right-5 bg-emerald-100 text-emerald-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">Urgence 24/7</div>
+                    
+                    <div class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 text-3xl mb-8 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-glow-accent group-hover:-rotate-3">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-900 mb-4">Dépannage Rapide</h4>
+                    <p class="text-slate-500 leading-relaxed mb-8">Une panne de chauffage ou une fuite d'eau ? Nos techniciens qualifiés interviennent rapidement pour sécuriser votre habitat.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-sm text-slate-700 font-medium"><i class="fas fa-check text-emerald-500 mr-3"></i> Diagnostic transparent</li>
+                        <li class="flex items-center text-sm text-slate-700 font-medium"><i class="fas fa-check text-emerald-500 mr-3"></i> Entretien chaudière/PAC</li>
+                        <li class="flex items-center text-sm text-slate-700 font-medium"><i class="fas fa-check text-emerald-500 mr-3"></i> Pièces d'origine garanties</li>
+                    </ul>
+                </div>
+
+                <div class="reveal delay-200 bg-white rounded-3xl p-10 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-500 border border-slate-100 group hover:-translate-y-2 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-700"></div>
+                    
+                    <div class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-500 text-3xl mb-8 group-hover:bg-orange-500 group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-lg group-hover:rotate-3">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-900 mb-4">Chauffage & Plomberie</h4>
+                    <p class="text-slate-500 leading-relaxed mb-8">Remplacement de chaudière, chauffe-eau ou rénovation de salle de bain. Installation conforme aux normes gaz en vigueur.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-sm text-slate-700 font-medium"><i class="fas fa-check text-orange-500 mr-3"></i> Chaudières Gaz THPE</li>
+                        <li class="flex items-center text-sm text-slate-700 font-medium"><i class="fas fa-check text-orange-500 mr-3"></i> Ballon thermodynamique</li>
+                        <li class="flex items-center text-sm text-slate-700 font-medium"><i class="fas fa-check text-orange-500 mr-3"></i> Recherche de fuites</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="stats-section" class="bg-slate-900 text-white py-24 relative overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand/10 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500/5 rounded-full blur-[100px]"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center divide-x divide-slate-800/50">
+                <div class="reveal">
+                    <div class="text-5xl font-extrabold mb-2 flex justify-center items-center text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400">
+                        <span class="counter" data-target="10">0</span>+
+                    </div>
+                    <div class="text-brand font-bold text-xs uppercase tracking-widest">Années d'expérience</div>
+                </div>
+                <div class="reveal delay-100">
+                    <div class="text-5xl font-extrabold mb-2 flex justify-center items-center text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400">
+                        <span class="counter" data-target="500">0</span>+
+                    </div>
+                    <div class="text-brand font-bold text-xs uppercase tracking-widest">Chantiers livrés</div>
+                </div>
+                <div class="reveal delay-200">
+                    <div class="text-5xl font-extrabold mb-2 flex justify-center items-center text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400">
+                        <span class="counter" data-target="100">0</span>%
+                    </div>
+                    <div class="text-brand font-bold text-xs uppercase tracking-widest">Conformité</div>
+                </div>
+                <div class="reveal delay-300">
+                    <div class="text-5xl font-extrabold mb-2 flex justify-center items-center text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400">
+                        <span class="counter" data-target="2">0</span>h
+                    </div>
+                    <div class="text-brand font-bold text-xs uppercase tracking-widest">Réactivité</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="realisations" class="py-32 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal">
+                <div class="max-w-xl">
+                    <h2 class="text-brand font-bold uppercase tracking-widest text-xs mb-3">Portfolio</h2>
+                    <h2 class="text-4xl font-bold text-slate-900 mb-4">Dernières réalisations</h2>
+                    <p class="text-slate-500 text-lg">Nous portons une attention obsessionnelle aux détails. Pas de tuyaux apparents inutiles, chantiers nettoyés.</p>
+                </div>
+                <a href="#contact" class="inline-flex items-center font-bold text-brand hover:text-brand-dark transition group text-lg">
+                    Voir plus de projets <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="reveal group relative overflow-hidden rounded-3xl h-[400px] cursor-pointer shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=2069&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    
+                    <div class="absolute bottom-0 left-0 p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="bg-brand text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide w-fit mb-3">Roissy-en-Brie</div>
+                        <h3 class="text-white text-2xl font-bold mb-2">Pompe à Chaleur Air/Eau</h3>
+                        <p class="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Remplacement chaudière fioul • Gain énergétique 60%</p>
+                    </div>
+                </div>
+                <div class="reveal delay-100 group relative overflow-hidden rounded-3xl h-[400px] cursor-pointer shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    
+                    <div class="absolute bottom-0 left-0 p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="bg-brand text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide w-fit mb-3">Créteil</div>
+                        <h3 class="text-white text-2xl font-bold mb-2">Rénovation Chaufferie</h3>
+                        <p class="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Installation haute performance • Conformité Gaz</p>
+                    </div>
+                </div>
+                <div class="reveal delay-200 group relative overflow-hidden rounded-3xl h-[400px] cursor-pointer shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c54be3855091?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    
+                    <div class="absolute bottom-0 left-0 p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="bg-brand text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide w-fit mb-3">Paris 12ème</div>
+                        <h3 class="text-white text-2xl font-bold mb-2">Climatisation VRV</h3>
+                        <p class="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Plateau de bureaux 200m² • Intégration plafond</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-slate-50 relative">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="reveal bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-slate-100 flex flex-col lg:flex-row min-h-[600px]">
+                
+                <div class="lg:w-5/12 p-8 md:p-12 flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-2">Démarrons votre projet</h2>
+                    <p class="text-slate-500 mb-8">Remplissez ce formulaire pour une estimation gratuite.</p>
+                    
+                    <form class="space-y-5">
+                        <div class="relative">
+                            <input type="text" class="peer w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-brand focus:ring-4 focus:ring-brand/10 outline-none transition-all placeholder-transparent" placeholder="Nom" id="name">
+                            <label for="name" class="absolute left-5 -top-2.5 bg-white px-2 text-xs text-slate-500 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-slate-400 peer-focus:-top-2.5 peer-focus:text-brand peer-focus:text-xs">Votre Nom</label>
+                        </div>
+                        
+                        <div class="relative">
+                            <input type="tel" class="peer w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-brand focus:ring-4 focus:ring-brand/10 outline-none transition-all placeholder-transparent" placeholder="Téléphone" id="phone">
+                            <label for="phone" class="absolute left-5 -top-2.5 bg-white px-2 text-xs text-slate-500 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-slate-400 peer-focus:-top-2.5 peer-focus:text-brand peer-focus:text-xs">Téléphone</label>
+                        </div>
+
+                        <div class="relative">
+                            <select class="w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-brand focus:ring-4 focus:ring-brand/10 outline-none transition-all text-slate-600 appearance-none">
+                                <option>Type d'intervention...</option>
+                                <option>Installation Climatisation / PAC</option>
+                                <option>Dépannage Urgent</option>
+                                <option>Entretien Annuel</option>
+                                <option>Autre demande</option>
+                            </select>
+                            <i class="fas fa-chevron-down absolute right-5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
+                        </div>
+
+                        <button class="w-full py-5 bg-gradient-to-r from-brand to-brand-dark text-white font-bold rounded-xl hover:shadow-lg hover:shadow-brand/40 transition-all transform hover:-translate-y-1 flex justify-center items-center gap-3">
+                            <span>Envoyer ma demande</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        
+                        <p class="text-xs text-center text-slate-400 mt-4"><i class="fas fa-lock mr-1"></i> Vos données sont sécurisées et ne seront jamais partagées.</p>
+                    </form>
+                </div>
+
+                <div class="lg:w-7/12 bg-slate-100 relative min-h-[400px] lg:min-h-full">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=3+Square+Jean+Bologne,+77680+Roissy-en-Brie&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                        class="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-700" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        marginheight="0" 
+                        marginwidth="0"
+                        loading="lazy">
+                    </iframe>
+
+                    <div class="absolute bottom-8 left-8 right-8 md:left-auto md:right-8 md:w-80 bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-white/50">
+                        <h4 class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                            <i class="fas fa-map-pin text-brand"></i> Climat DS
+                        </h4>
+                        <ul class="space-y-3 text-sm text-slate-600">
+                            <li>3 Square Jean Bologne</li>
+                            <li>77680 Roissy-en-Brie</li>
+                            <li class="pt-2 border-t border-slate-100 mt-2 font-bold text-brand">01 60 00 00 00</li>
+                            <li>contact@climat-ds.fr</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-12 reveal">Questions Fréquentes</h2>
+            
+            <div class="space-y-4 reveal delay-100">
+                <details class="group bg-slate-50 rounded-2xl p-6 cursor-pointer border border-slate-100 hover:border-brand/30 transition-colors">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 text-lg">
+                        Combien coûte un devis ?
+                        <span class="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm text-brand transition-transform group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 leading-relaxed pl-2 border-l-2 border-brand/20">
+                        Chez Climat DS, tous nos devis sont <strong>100% gratuits et sans engagement</strong>. Nous nous déplaçons pour évaluer précisément vos besoins thermique.
+                    </div>
+                </details>
+
+                <details class="group bg-slate-50 rounded-2xl p-6 cursor-pointer border border-slate-100 hover:border-brand/30 transition-colors">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 text-lg">
+                        Quelle garantie sur vos installations ?
+                        <span class="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm text-brand transition-transform group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 leading-relaxed pl-2 border-l-2 border-brand/20">
+                        Travaux couverts par notre <strong>Garantie Décennale</strong> (10 ans). Le matériel (Daikin, Mitsubishi, etc.) bénéficie de la garantie constructeur allant de 2 à 5 ans.
+                    </div>
+                </details>
+
+                <details class="group bg-slate-50 rounded-2xl p-6 cursor-pointer border border-slate-100 hover:border-brand/30 transition-colors">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 text-lg">
+                        Intervenez-vous en urgence ?
+                        <span class="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm text-brand transition-transform group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 leading-relaxed pl-2 border-l-2 border-brand/20">
+                        Oui. Pour les pannes totales (chauffage en hiver) ou fuites d'eau importantes, nous intervenons sous 24h dans notre zone (77, 91, 94).
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-16 text-sm border-t border-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-6 text-white">
+                        <div class="bg-brand w-8 h-8 rounded flex items-center justify-center font-bold">C</div>
+                        <span class="font-bold text-xl">Climat DS</span>
+                    </div>
+                    <p class="text-slate-500 mb-6 max-w-sm">Expert en génie climatique et plomberie. Nous apportons le confort durable dans votre habitat.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand hover:text-white transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6">Liens Rapides</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-brand transition">Accueil</a></li>
+                        <li><a href="#services" class="hover:text-brand transition">Nos Services</a></li>
+                        <li><a href="#realisations" class="hover:text-brand transition">Réalisations</a></li>
+                        <li><a href="#contact" class="hover:text-brand transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Légal</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-brand transition">Mentions légales</a></li>
+                        <li><a href="#" class="hover:text-brand transition">Politique de confidentialité</a></li>
+                        <li><a href="#" class="hover:text-brand transition">CGV</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>© 2025 Climat DS. Tous droits réservés.</div>
+                <div class="flex items-center gap-2 text-xs bg-slate-800 px-3 py-1 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    Site sécurisé & hébergé en France
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="lg:hidden fixed bottom-6 right-6 z-50">
+        <a href="tel:0160000000" class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full shadow-lg shadow-emerald-500/40 flex items-center justify-center text-2xl animate-bounce border-2 border-white/20">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <script>
+        // MENU MOBILE
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+
+        btn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if(isMenuOpen) {
+                menu.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Bloquer le scroll
+            } else {
+                menu.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => { 
+                menu.classList.add('hidden');
+                isMenuOpen = false;
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // ANIMATIONS SCROLL (Intersection Observer)
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // COMPTEUR ANIMÉ
+        const statsSection = document.getElementById('stats-section');
+        let counted = false;
+
+        const countObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !counted) {
+                counted = true;
+                document.querySelectorAll('.counter').forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+                    const update = () => {
+                        current += step;
+                        if(current < target) {
+                            counter.innerText = Math.ceil(current);
+                            requestAnimationFrame(update);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    update();
+                });
+            }
+        }, { threshold: 0.5 });
+
+        if(statsSection) countObserver.observe(statsSection);
+
+        // NAVBAR FROSTED EFFECT ON SCROLL
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('py-4', 'py-2'); // Réduire la taille
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.replace('py-2', 'py-4');
+            }
+        });
+    </script>
+</body>
+</html>
