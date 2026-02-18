@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="Expert en climatisation, chauffage et plomberie en Île-de-France. Installation aux normes, dépannage rapide et garantie décennale.">
-    <title>Climat DS - Expert CVC & Plomberie Pontault-Combault</title>
+    <title>Climat DS - Expert CVC & Plomberie Île-de-France</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -40,24 +40,23 @@
     <style>
         /* Effet Verre Dépoli Premium */
         .glass-nav { 
-            background: rgba(255, 255, 255, 0.8); 
+            background: rgba(255, 255, 255, 0.85); 
             backdrop-filter: blur(12px); 
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
         }
         
-        /* Pattern subtil pour le fond */
         .bg-grid-slate {
             background-size: 40px 40px;
             background-image: linear-gradient(to right, rgba(226, 232, 240, 0.5) 1px, transparent 1px),
                               linear-gradient(to bottom, rgba(226, 232, 240, 0.5) 1px, transparent 1px);
         }
 
-        /* Classes d'animation au scroll */
+        /* Animations */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); /* Courbe de Bézier très fluide */
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.active {
             opacity: 1;
@@ -94,11 +93,9 @@
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#" class="flex items-center gap-3 group relative z-50">
                 <img src="climat.png" alt="Logo Climat DS" class="h-10 w-auto object-contain" onerror="this.style.display='none'; document.getElementById('logo-fallback').classList.remove('hidden')">
-                
                 <div id="logo-fallback" class="hidden bg-gradient-to-br from-brand to-brand-dark text-white w-10 h-10 rounded-xl flex items-center justify-center text-xl shadow-lg shadow-brand/30">
                     <i class="fas fa-wind"></i>
                 </div>
-                
                 <div class="leading-none">
                     <span class="block text-xl font-extrabold text-slate-800 tracking-tight">Climat<span class="text-brand">DS</span></span>
                     <span class="block text-[9px] text-slate-500 font-bold uppercase tracking-[0.2em] mt-1">Chauffage & Clim</span>
@@ -106,25 +103,26 @@
             </a>
 
             <nav class="hidden lg:flex items-center gap-10 font-medium text-sm text-slate-600">
-                <a href="#" class="hover:text-brand transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-brand after:transition-all after:duration-300 hover:after:w-full">Accueil</a>
-                <a href="#services" class="hover:text-brand transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-brand after:transition-all after:duration-300 hover:after:w-full">Expertises</a>
-                <a href="#realisations" class="hover:text-brand transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-brand after:transition-all after:duration-300 hover:after:w-full">Projets</a>
-                <a href="#faq" class="hover:text-brand transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-brand after:transition-all after:duration-300 hover:after:w-full">FAQ</a>
+                <a href="#" class="hover:text-brand transition-colors">Accueil</a>
+                <a href="#services" class="hover:text-brand transition-colors">Expertises</a>
+                <a href="#realisations" class="hover:text-brand transition-colors">Projets</a>
+                <a href="#faq" class="hover:text-brand transition-colors">FAQ</a>
             </nav>
 
             <div class="flex items-center gap-4">
-                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white transition-all duration-300 bg-brand rounded-full hover:bg-brand-dark shadow-glow hover:shadow-lg hover:-translate-y-0.5">
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white transition-all duration-300 bg-brand rounded-full hover:bg-brand-dark shadow-glow hover:-translate-y-0.5">
                     <span>Devis Gratuit</span>
                     <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                 </a>
                 
-                <button id="mobile-menu-btn" class="lg:hidden relative z-50 p-2 text-slate-800 hover:text-brand focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
+                <button id="mobile-menu-btn" class="lg:hidden relative z-50 p-2 text-slate-800 hover:text-brand focus:outline-none transition-transform duration-300">
+                    <i class="fas fa-bars text-2xl" id="burger-icon"></i>
+                    <i class="fas fa-times text-2xl hidden" id="close-icon"></i>
                 </button>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-white/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center space-y-8 transition-all duration-300">
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-white/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center space-y-8 transition-all duration-300 opacity-0 transform translate-x-full">
             <a href="#" class="text-2xl font-bold text-slate-800 hover:text-brand">Accueil</a>
             <a href="#services" class="text-2xl font-bold text-slate-800 hover:text-brand">Services</a>
             <a href="#realisations" class="text-2xl font-bold text-slate-800 hover:text-brand">Réalisations</a>
@@ -189,7 +187,6 @@
     <div class="bg-white py-12 border-b border-slate-100 relative overflow-hidden">
         <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
         <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
-        
         <div class="container mx-auto px-4 text-center">
             <p class="text-xs font-bold text-slate-400 uppercase tracking-[0.3em] mb-8">Partenaire des leaders mondiaux</p>
             <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
@@ -213,7 +210,6 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="reveal bg-white rounded-3xl p-10 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-brand/10 transition-all duration-500 border border-slate-100 group hover:-translate-y-2 relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-brand/5 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-700"></div>
-                    
                     <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-brand text-3xl mb-8 group-hover:bg-brand group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-glow group-hover:rotate-3">
                         <i class="fas fa-snowflake"></i>
                     </div>
@@ -228,7 +224,6 @@
 
                 <div class="reveal delay-100 bg-white rounded-3xl p-10 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-500 border border-slate-100 group hover:-translate-y-2 relative overflow-hidden ring-1 ring-emerald-100">
                     <div class="absolute top-5 right-5 bg-emerald-100 text-emerald-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">Urgence 24/7</div>
-                    
                     <div class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 text-3xl mb-8 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-glow-accent group-hover:-rotate-3">
                         <i class="fas fa-wrench"></i>
                     </div>
@@ -243,7 +238,6 @@
 
                 <div class="reveal delay-200 bg-white rounded-3xl p-10 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-500 border border-slate-100 group hover:-translate-y-2 relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-700"></div>
-                    
                     <div class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-500 text-3xl mb-8 group-hover:bg-orange-500 group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-lg group-hover:rotate-3">
                         <i class="fas fa-fire"></i>
                     </div>
@@ -310,7 +304,6 @@
                 <div class="reveal group relative overflow-hidden rounded-3xl h-[400px] cursor-pointer shadow-lg">
                     <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=2069&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    
                     <div class="absolute bottom-0 left-0 p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                         <div class="bg-brand text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide w-fit mb-3">Roissy-en-Brie</div>
                         <h3 class="text-white text-2xl font-bold mb-2">Pompe à Chaleur Air/Eau</h3>
@@ -320,7 +313,6 @@
                 <div class="reveal delay-100 group relative overflow-hidden rounded-3xl h-[400px] cursor-pointer shadow-lg">
                     <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    
                     <div class="absolute bottom-0 left-0 p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                         <div class="bg-brand text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide w-fit mb-3">Créteil</div>
                         <h3 class="text-white text-2xl font-bold mb-2">Rénovation Chaufferie</h3>
@@ -330,7 +322,6 @@
                 <div class="reveal delay-200 group relative overflow-hidden rounded-3xl h-[400px] cursor-pointer shadow-lg">
                     <img src="https://images.unsplash.com/photo-1504384308090-c54be3855091?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    
                     <div class="absolute bottom-0 left-0 p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                         <div class="bg-brand text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide w-fit mb-3">Paris 12ème</div>
                         <h3 class="text-white text-2xl font-bold mb-2">Climatisation VRV</h3>
@@ -349,20 +340,20 @@
                     <h2 class="text-3xl font-bold text-slate-900 mb-2">Démarrons votre projet</h2>
                     <p class="text-slate-500 mb-8">Remplissez ce formulaire pour une estimation gratuite.</p>
                     
-                    <form class="space-y-5">
+                    <form action="https://formspree.io/f/VOTRE_ID_ICI" method="POST" class="space-y-5">
                         <div class="relative">
-                            <input type="text" class="peer w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-brand focus:ring-4 focus:ring-brand/10 outline-none transition-all placeholder-transparent" placeholder="Nom" id="name">
+                            <input type="text" name="nom" required class="peer w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-brand focus:ring-4 focus:ring-brand/10 outline-none transition-all placeholder-transparent" placeholder="Nom" id="name">
                             <label for="name" class="absolute left-5 -top-2.5 bg-white px-2 text-xs text-slate-500 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-slate-400 peer-focus:-top-2.5 peer-focus:text-brand peer-focus:text-xs">Votre Nom</label>
                         </div>
                         
                         <div class="relative">
-                            <input type="tel" class="peer w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-brand focus:ring-4 focus:ring-brand/10 outline-none transition-all placeholder-transparent" placeholder="Téléphone" id="phone">
+                            <input type="tel" name="telephone" required class="peer w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-brand focus:ring-4 focus:ring-brand/10 outline-none transition-all placeholder-transparent" placeholder="Téléphone" id="phone">
                             <label for="phone" class="absolute left-5 -top-2.5 bg-white px-2 text-xs text-slate-500 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-slate-400 peer-focus:-top-2.5 peer-focus:text-brand peer-focus:text-xs">Téléphone</label>
                         </div>
 
                         <div class="relative">
-                            <select class="w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-brand focus:ring-4 focus:ring-brand/10 outline-none transition-all text-slate-600 appearance-none">
-                                <option>Type d'intervention...</option>
+                            <select name="type" class="w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-brand focus:ring-4 focus:ring-brand/10 outline-none transition-all text-slate-600 appearance-none">
+                                <option value="" disabled selected>Type d'intervention...</option>
                                 <option>Installation Climatisation / PAC</option>
                                 <option>Dépannage Urgent</option>
                                 <option>Entretien Annuel</option>
@@ -371,12 +362,24 @@
                             <i class="fas fa-chevron-down absolute right-5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
                         </div>
 
+                        <div class="relative">
+                            <textarea name="message" rows="3" class="peer w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-brand focus:ring-4 focus:ring-brand/10 outline-none transition-all placeholder-transparent" placeholder="Message" id="msg"></textarea>
+                            <label for="msg" class="absolute left-5 -top-2.5 bg-white px-2 text-xs text-slate-500 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-slate-400 peer-focus:-top-2.5 peer-focus:text-brand peer-focus:text-xs">Détails du projet...</label>
+                        </div>
+
+                        <div class="flex items-start gap-3 px-1 mb-2">
+                            <input type="checkbox" id="rgpd" required class="mt-1 h-4 w-4 rounded border-slate-300 text-brand focus:ring-brand cursor-pointer">
+                            <label for="rgpd" class="text-[10px] text-slate-500 leading-tight cursor-pointer">
+                                J'accepte que les informations saisies soient utilisées par Climat DS pour me recontacter et établir un devis.
+                            </label>
+                        </div>
+
                         <button class="w-full py-5 bg-gradient-to-r from-brand to-brand-dark text-white font-bold rounded-xl hover:shadow-lg hover:shadow-brand/40 transition-all transform hover:-translate-y-1 flex justify-center items-center gap-3">
                             <span>Envoyer ma demande</span>
                             <i class="fas fa-paper-plane"></i>
                         </button>
                         
-                        <p class="text-xs text-center text-slate-400 mt-4"><i class="fas fa-lock mr-1"></i> Vos données sont sécurisées et ne seront jamais partagées.</p>
+                        <p class="text-xs text-center text-slate-400 mt-4"><i class="fas fa-lock mr-1"></i> Vos données sont sécurisées.</p>
                     </form>
                 </div>
 
@@ -450,7 +453,7 @@
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center gap-2 mb-6 text-white">
-                        <div class="bg-brand w-8 h-8 rounded flex items-center justify-center font-bold">C</div>
+                        <img src="climat.png" alt="Logo" class="h-8 w-auto bg-white rounded p-1" onerror="this.style.display='none'">
                         <span class="font-bold text-xl">Climat DS</span>
                     </div>
                     <p class="text-slate-500 mb-6 max-w-sm">Expert en génie climatique et plomberie. Nous apportons le confort durable dans votre habitat.</p>
@@ -473,8 +476,8 @@
                 <div>
                     <h4 class="text-white font-bold mb-6">Légal</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="hover:text-brand transition">Mentions légales</a></li>
-                        <li><a href="#" class="hover:text-brand transition">Politique de confidentialité</a></li>
+                        <li><button onclick="openModal('modal-mentions')" class="hover:text-brand transition text-left">Mentions légales</button></li>
+                        <li><button onclick="openModal('modal-confid')" class="hover:text-brand transition text-left">Politique de confidentialité</button></li>
                         <li><a href="#" class="hover:text-brand transition">CGV</a></li>
                     </ul>
                 </div>
@@ -496,32 +499,93 @@
         </a>
     </div>
 
+    <div id="modal-container" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-8 relative shadow-2xl animate-blob">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900"><i class="fas fa-times text-xl"></i></button>
+            
+            <div id="modal-mentions" class="hidden space-y-4 text-slate-600 text-sm">
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Mentions Légales</h3>
+                <p><strong>Éditeur du site :</strong> Climat DS, domicilié au 3 Square Jean Bologne, 77680 Roissy-en-Brie.</p>
+                <p><strong>Directeur de publication :</strong> Yves Deotte.</p>
+                <p><strong>Hébergement :</strong> [Ton hébergeur : ex GitHub Pages / Vercel].</p>
+                <p><strong>Activité :</strong> Travaux d'installation d'équipements thermiques et de climatisation (4322B).</p>
+            </div>
+
+            <div id="modal-confid" class="hidden space-y-4 text-slate-600 text-sm">
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Politique de Confidentialité</h3>
+                <p>Les données collectées via le formulaire de contact (Nom, Téléphone, Email) sont traitées par Climat DS uniquement dans le but de répondre à vos demandes de devis.</p>
+                <p><strong>Durée de conservation :</strong> Les données sont conservées pendant 3 ans après le dernier contact.</p>
+                <p><strong>Vos droits :</strong> Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données en envoyant un mail à contact@climat-ds.fr.</p>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // MENU MOBILE
+        // --- 1. MENU MOBILE CORRIGÉ ---
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
+        const burgerIcon = document.getElementById('burger-icon');
+        const closeIcon = document.getElementById('close-icon');
         let isMenuOpen = false;
 
-        btn.addEventListener('click', () => {
+        function toggleMenu() {
             isMenuOpen = !isMenuOpen;
             if(isMenuOpen) {
+                // Ouvrir
                 menu.classList.remove('hidden');
+                setTimeout(() => { // Petit délai pour l'animation
+                    menu.classList.remove('opacity-0', 'translate-x-full');
+                }, 10);
+                burgerIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
                 document.body.style.overflow = 'hidden'; // Bloquer le scroll
             } else {
-                menu.classList.add('hidden');
+                // Fermer
+                menu.classList.add('opacity-0', 'translate-x-full');
+                setTimeout(() => {
+                    menu.classList.add('hidden');
+                }, 300); // Attendre la fin de l'anim
+                burgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
                 document.body.style.overflow = 'auto';
             }
-        });
+        }
 
+        btn.addEventListener('click', toggleMenu);
+
+        // Fermer le menu si on clique sur un lien
         menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => { 
-                menu.classList.add('hidden');
-                isMenuOpen = false;
-                document.body.style.overflow = 'auto';
-            });
+            link.addEventListener('click', toggleMenu);
         });
 
-        // ANIMATIONS SCROLL (Intersection Observer)
+        // --- 2. GESTION DES MODALES ---
+        function openModal(id) {
+            const container = document.getElementById('modal-container');
+            container.classList.remove('hidden');
+            container.classList.add('flex');
+            
+            // Cacher tous les contenus d'abord
+            document.getElementById('modal-mentions').classList.add('hidden');
+            document.getElementById('modal-confid').classList.add('hidden');
+            
+            // Montrer le bon
+            document.getElementById(id).classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Bloquer scroll arrière plan
+        }
+
+        function closeModal() {
+            const container = document.getElementById('modal-container');
+            container.classList.add('hidden');
+            container.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fermer en cliquant dehors
+        document.getElementById('modal-container').addEventListener('click', function(e) {
+            if(e.target === this) closeModal();
+        });
+
+        // --- 3. ANIMATIONS AU SCROLL ---
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -534,7 +598,7 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // COMPTEUR ANIMÉ
+        // --- 4. COMPTEUR ANIMÉ ---
         const statsSection = document.getElementById('stats-section');
         let counted = false;
 
@@ -562,12 +626,12 @@
 
         if(statsSection) countObserver.observe(statsSection);
 
-        // NAVBAR FROSTED EFFECT ON SCROLL
+        // --- 5. NAVBAR GLASS EFFECT ---
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('shadow-md');
-                navbar.classList.replace('py-4', 'py-2'); // Réduire la taille
+                navbar.classList.replace('py-4', 'py-2');
             } else {
                 navbar.classList.remove('shadow-md');
                 navbar.classList.replace('py-2', 'py-4');
